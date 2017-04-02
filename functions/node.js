@@ -22,7 +22,7 @@ admin.initializeApp({
           return null;
         }
       }).then(function (resolution) {
-        console.log(`Txn resolution: ${resolution.committed ? 'commited' : 'NOT-COMMITED'}`);
+        console.log(`Txn resolution: ${resolution.committed ? 'committed' : 'NOT-COMMITTED'}`);
         if (resolution.committed) {
           // process item
           console.log(`Process: ${JSON.stringify(item)}`);

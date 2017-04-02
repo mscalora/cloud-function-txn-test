@@ -13,14 +13,14 @@ const functions = require('firebase-functions');
       console.log(`Item: ${JSON.stringify(event.data.val())} at ${event.data.key}`);
       console.log(`Item ref: ${itemRef.toString()}`);
 
-      itemRef.transaction(function (value) {
+      return itemRef.transaction(function (value) {
         console.log(`Value: ${JSON.stringify(value)}`);
         if (value) {
           item  = value;
           return null;
         }
       }).then(function (resolution) {
-        console.log(`Txn resolution: ${resolution.committed ? 'commited' : 'NOT-COMMITED'}`);
+        console.log(`Txn resolution: ${resolution.committed ? 'committed' : 'NOT-COMMITTED'}`);
         if (resolution.committed) {
           // process item
           console.log(`Process: ${JSON.stringify(item)}`);
